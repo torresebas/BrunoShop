@@ -1,11 +1,13 @@
 import { Component } from "react";
+import Logo from './Logo'
+import Cart from './Cart'
 
 const styles = {
   navbar: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    hight: "100px",
+    height: "100px",
     justifyContent:'space-between',
     position:'relative',
     padding:'0 50px',
@@ -17,8 +19,8 @@ class Navbar extends Component {
   render() {
     return (
       <nav style={styles.navbar}>
-        <p>Logo</p>
-        <p>Cart</p>
+        <Logo/>
+        <Cart/>
       </nav>
     );
   }
