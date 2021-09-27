@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-import BubbleAlert from './BubbleAlert'
+import BubbleAlert from "./BubbleAlert";
 
 const styles = {
   cart: {
@@ -11,11 +11,11 @@ const styles = {
     padding: "15px",
     cursor: "pointer",
   },
-  bubble:{
-    position:'relative',
-    left:'12px',
-    top:'20px'
-  }
+  bubble: {
+    position: "relative",
+    left: "12px",
+    top: "20px",
+  },
 };
 
 class Cart extends Component {
@@ -23,7 +23,7 @@ class Cart extends Component {
     return (
       <div>
         <span style={styles.bubble}>
-          <BubbleAlert/>
+          <BubbleAlert value={15} />
         </span>
         <button style={styles.cart}>Cart</button>
       </div>
