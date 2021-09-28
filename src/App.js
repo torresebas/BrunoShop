@@ -12,36 +12,29 @@ class App extends Component {
       { name: "Peas", price: 7.5, img: "/products/peas.jpg" },
       { name: "Lettuce", price: 4.5, img: "/products/lettuce.jpg" },
     ],
-    cart: [
-      // {
-      //   name: "Lettuce",
-      //   price: 4.5,
-      //   img: "/products/lettuce.jpg",
-      //   quantity: 1,
-      // },
-    ],
+    cart: [],
   };
 
   addToCart = (product) => {
     const { cart } = this.state;
     if (cart.find((x) => x.name === product.name)) {
       const newCart = cart.map((x) =>
-        x.name === product.name ? { ...x, cantidad: x.cantidad + 1 } : x
+        x.name === product.name ? { ...x, quantity: x.quantity + 1 } : x
       );
       return this.setState({ cart: newCart });
     }
     return this.setState({
       cart: this.state.cart.concat({
         ...product,
-        cantidad: 1,
+        quantity: 1,
       }),
     });
   };
   render() {
-    console.log(this.state.cart);
+    // console.log(this.state.cart);
     return (
       <div>
-        <Navbar />
+        <Navbar cart={this.state.cart}/>
         <Layout>
           <Title />
           <Products addToCart={this.addToCart} products={this.state.products} />
