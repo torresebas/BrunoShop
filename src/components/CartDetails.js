@@ -27,7 +27,6 @@ const styles = {
 class CartDetails extends Component {
   render() {
     const { cart } = this.props;
-    console.log(cart);
     return (
       <div style={styles.cartDetails}>
         <ul style={styles.ul}>
