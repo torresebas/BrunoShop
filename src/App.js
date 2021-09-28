@@ -23,24 +23,28 @@ class App extends Component {
   };
 
   addToCart = (product) => {
+    const { cart } = this.state;
+    if (cart.find((x) => x.name === product.name)) {
+      const newCart = cart.map((x) =>
+        x.name === product.name ? { ...x, cantidad: x.cantidad + 1 } : x
+      );
+      return this.setState({ cart: newCart });
+    }
     return this.setState({
       cart: this.state.cart.concat({
         ...product,
-        cantidad: 1
-      })
-    })
+        cantidad: 1,
+      }),
+    });
   };
   render() {
-    console.log(this.state.cart)
+    console.log(this.state.cart);
     return (
       <div>
         <Navbar />
         <Layout>
           <Title />
-          <Products
-            addToCart={this.addToCart}
-            products={this.state.products}
-          />
+          <Products addToCart={this.addToCart} products={this.state.products} />
         </Layout>
       </div>
     );
